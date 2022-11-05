@@ -1,0 +1,49 @@
+{
+  "name": "fluvius-backend",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "npx env-cmd nodemon src/index.js",
+    "lint": "eslint . --fix",
+    "test": "npx env-cmd -f .env.test jest --runInBand",
+    "test:coverage": "yarn test --coverage"
+  },
+  "nodemonConfig": {
+    "signal": "SIGTERM",
+    "ignore": [
+      "node_modules/*",
+      ".vscode/*"
+    ],
+    "delay": "80",
+    "watch": [
+      "config",
+      "src"
+    ],
+    "ext": "js,json",
+    "legacyWatch": true,
+    "exec": "node --inspect=0.0.0.0:9001 --trace-warnings src/index.js"
+  },
+  "dependencies": {
+    "@koa/cors": "^3.1.0",
+    "@koa/router": "^10.1.1",
+    "config": "^3.3.6",
+    "crypto": "^1.0.1",
+    "env-cmd": "^10.1.0",
+    "jest": "^27.3.1",
+    "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.95.11",
+    "koa": "^2.13.1",
+    "koa-bodyparser": "^4.3.0",
+    "mysql2": "^2.3.0",
+    "serialize-error": "^8.1.0",
+    "supertest": "^6.2.2",
+    "uuid": "^8.3.2",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.14.0",
+    "eslint-plugin-import": "^2.26.0",
+    "jest-each": "^28.0.2",
+    "nodemon": "^2.0.15"
+  }
+}
